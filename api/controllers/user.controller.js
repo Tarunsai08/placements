@@ -42,3 +42,14 @@ exports.getResult = (req, res) => {
         res.send(result);
     })
 }
+
+exports.getResultByRollNo = (req, res) => {
+    console.log(req.rollNo)
+    Result.find({rollNo:req.rollNo}).exec().then((result) => {
+        res.send(result);
+    })
+}
+
+exports.getResultByDepartment = (req, res) => {
+
+}

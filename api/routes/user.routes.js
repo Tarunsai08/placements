@@ -1,7 +1,6 @@
 const { authJwt } = require("../middlewares");
 const controller = require("../controllers/user.controller");
 
-
 module.exports = function(app) {
     app.use(function(req, res, next) {
         res.header(
@@ -14,5 +13,5 @@ module.exports = function(app) {
     app.post("/api/admin/post-result", [authJwt.verifyToken, authJwt.isAdmin], controller.postResult);
     app.get("/api/admin/get-result", [authJwt.verifyToken, authJwt.isAdmin], controller.getResult);
 
-
+    app.get("/api/student/get-student-result", [authJwt.verifyToken, authJwt.isStudent], controller.getResultByRollNo);
 };
