@@ -1,0 +1,28 @@
+name: Run node app and deploy static page
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run node app
+        run: node ./api/app.js
+
+      - name: Build static page
+        run: npm run build
+
+      - name: Deploy static page
+        uses: actions/deploy-pages@v1
+        with:
+          source: public
