@@ -19,7 +19,7 @@ require('./routes/user.routes')(app);
 
 app.use('*',(req, res) => res.status(404).json({error:"Not Found"}))
 
-mongoose.connect(String(process.env.MONGODB_URI))
+mongoose.connect("mongodb+srv://admin:admin@placements.vihlqhn.mongodb.net/?retryWrites=true&w=majority")
     .then(async () => {
         console.log('MongoDB connected')
         await insertDepartments()
