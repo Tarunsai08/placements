@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const db = require("../model");
+const Student = require("../model/student.model");
 const User = db.user;
 
 const config = process.env.JWT_SECRET
@@ -47,7 +48,10 @@ const isDepartmentCoordinator = (req, res, next) => {
 const isStudent = (req, res, next) => {
     User.findById(req.userId).exec().then((user) => {
         if(user.role === "student") {
-            next();
+            Student.findOne({email: user.email}).exec().then((student) => {
+                req.rollNo=student.rollNo;
+                next();
+            })
         } else {
             res.status(403).send({ message: "Require Student Role!" });
         }
