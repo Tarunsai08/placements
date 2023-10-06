@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Department } = require("../model/department.model");
 
 const departments = [
-    { name: "CSE" },
+    { name: "CSE", },
     { name: "ECE" },
     { name: "Civil" },
     { name: "Mechanical" },

@@ -26,6 +26,8 @@ const login = async (email, password) => {
             window.location.href = './admin.html';
         } else if (response.data.role === 'student') {
             window.location.href = './student.html';
+        } else if (response.data.role === 'department-coordinator') {
+            window.location.href = './dept.html';
         }
     } catch (error) {
         console.log(error.response.data.message);
