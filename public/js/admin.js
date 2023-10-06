@@ -1,8 +1,19 @@
 const axios = window.axios;
 
-console.log(sessionStorage.getItem('token'));
-
 const submit = document.getElementById('submit');
+
+axios.get('http://localhost:5000/api/admin/get-result', {
+    headers: {
+        'x-access-token': sessionStorage.getItem('token')
+    }
+}).then((res) => {
+    const arr = Array.from(res.data);
+    arr.forEach((element) => {
+        console.log(element);
+
+    });
+
+})
 
 submit.addEventListener('click', (e) => {
     e.preventDefault()
@@ -25,6 +36,7 @@ submit.addEventListener('click', (e) => {
     })
     .then((res) => {
         console.log(res);
+        window.location.reload();
     })
     .catch((err) => {
         console.log(err);

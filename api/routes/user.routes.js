@@ -12,6 +12,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/admin/post-result", [authJwt.verifyToken, authJwt.isAdmin], controller.postResult);
+    app.get("/api/admin/get-result", [authJwt.verifyToken, authJwt.isAdmin], controller.getResult);
 
 
 };

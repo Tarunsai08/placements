@@ -35,6 +35,10 @@ exports.postResult = (req, res) => {
             res.send({message: "Result added successfully!"});
         })
     })
+}
 
-
+exports.getResult = (req, res) => {
+    Result.find().exec().then((result) => {
+        res.send(result);
+    })
 }
