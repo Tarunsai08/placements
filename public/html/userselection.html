@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div class="max-w-md w-full space-y-8">
+        <div>
+          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Select User Type
+          </h2>
+        </div>
+
+        <form class="mt-8 space-y-6" id="userForm">
+          <input type="hidden" name="remember" value="true" />
+
+          <div class="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label for="user-type" class="sr-only">User Type</label>
+
+              <select
+                id="user-type"
+                name="user-type"
+                required
+                class="my-1 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              >
+                <option value="">Select user type...</option>
+                <option value="student">Student</option>
+                <option value="coordinator">Department Coordinator</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Proceed to Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("userForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          window.location.href = "login.html";
+        });
+    </script>
+  </body>
+</html>
