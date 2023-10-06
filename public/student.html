@@ -18,6 +18,7 @@
       }
 
       .card {
+        height: fit-content;
         background-color: #6ee7b7; /* green */
         border-radius: 15px;
         padding: 16px;
@@ -103,34 +104,6 @@
         <!-- Placement Status Cards -->
       </div>
     </div>
-    <script type="module">
-      // Fetching data from JSON file
-      import { hello } from "./html/data.js";
-
-      const container = document.getElementById("cardsContainer");
-
-      hello.forEach((item) => {
-        // Create card div
-        const card = document.createElement("div");
-        card.className = "card";
-
-        card.innerHTML = `
-            <h3>Placement Result</h3>
-            <p>Selected</p>
-            <h3>Company</h3>
-            <p>${item.company}</p>
-            <h3>LPA</h3>
-            <p>${item.package}LPA</p>
-            <h3>Batch</h3>
-            <p>${item.batch}</p>
-         `;
-
-        // Create heart icon here
-        console.log(item.package, item.company, item.name, item.batch);
-
-        container.appendChild(card);
-      });
-    </script>
-  <script type="module" src="js/student.js"></script>
+    <script type="module" src="js/student.js"></script>
   </body>
 </html>
