@@ -9,6 +9,30 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background-color: #6ee7b7; /* green */
+        border-radius: 15px;
+        padding: 16px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      .card h3 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .card p {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body class="bg-gray-100">
     <!-- Navigation Bar -->
@@ -73,23 +97,38 @@
       </div>
 
       <!-- Placement Status Section (2/3 of the page) -->
-      <div class="w-2/3 p-4">
+      <div class="w-2/3 grid p-4 flex flex-wrap" id="cardsContainer">
         <h2 class="text-2xl font-semibold mb-4">Placement Status</h2>
         <!-- Placement Status Cards -->
-        <div class="grid lg:grid-cols-4 sm:grid-cols-2 gap-4">
-          <!-- Placement Status Card 1 -->
-          <div class="bg-green-300 rounded-lg p-4 shadow-md h-auto w-auto">
-            <h3 class="text-xl font-semibold">Placement Result</h3>
-            <p>Selected</p>
-            <h3 class="text-xl font-semibold">Company</h3>
-            <p>Flipcart</p>
-            <h3 class="text-xl font-semibold">LPA</h3>
-            <p>10LPA</p>
-            <h3 class="text-xl font-semibold">Batch</h3>
-            <p>2025</p>
-          </div>
-        </div>
       </div>
     </div>
+    <script type="module">
+      // Fetching data from JSON file
+      import { hello } from "./html/data.js";
+
+      const container = document.getElementById("cardsContainer");
+
+      hello.forEach((item) => {
+        // Create card div
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <h3>Placement Result</h3>
+            <p>Selected</p>
+            <h3>Company</h3>
+            <p>${item.company}</p>
+            <h3>LPA</h3>
+            <p>${item.package}LPA</p>
+            <h3>Batch</h3>
+            <p>${item.batch}</p>
+         `;
+
+        // Create heart icon here
+        console.log(item.package, item.company, item.name, item.batch);
+
+        container.appendChild(card);
+      });
+    </script>
   </body>
 </html>

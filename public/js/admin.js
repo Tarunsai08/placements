@@ -10,7 +10,14 @@ axios.get('http://localhost:5000/api/admin/get-result', {
     const arr = Array.from(res.data);
     arr.forEach((element) => {
         console.log(element);
-
+        const rows = document.querySelector(".table-body");
+        const row = document.createElement("tr")
+        row.innerHTML = `
+            <td>${element.rollNo}</td>
+            <td>${element.company}</td>
+            <td>${element.package}</td>
+            `;
+        rows.appendChild(row);
     });
 
 })
