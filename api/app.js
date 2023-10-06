@@ -3,11 +3,15 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const cors = require('cors')
+
 const insertDepartments = require('./test/department.data')
 const insertStudents = require('./test/student.data')
 const createStudents = require('./test/user.data')
 
 app.use(express.json())
+
+app.use(cors())
 
 
 require('./routes/auth.routes')(app);
