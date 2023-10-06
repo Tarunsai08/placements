@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
-const app = express()
+const index = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv')
@@ -10,16 +10,16 @@ const insertDepartments = require('./test/department.data')
 const insertStudents = require('./test/student.data')
 const createStudents = require('./test/user.data')
 
-app.use(express.json())
+index.use(express.json())
 
 dotenv.config()
-app.use(cors())
+index.use(cors())
 
 
-require('./routes/auth.routes')(app);
-require('./routes/user.routes')(app);
+require('./routes/auth.routes')(index);
+require('./routes/user.routes')(index);
 
-app.use('*',(req, res) => res.status(404).json({error:"Not Found"}))
+index.use('*',(req, res) => res.status(404).json({error:"Not Found"}))
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(async () => {
@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGODB_URI)
         await insertDepartments()
         await insertStudents()
         await createStudents()
-        app.listen(process.env.PORT, () => {
+        index.listen(process.env.PORT, () => {
             console.log(`Server is running on port ${process.env.PORT}`)
         })
     })
