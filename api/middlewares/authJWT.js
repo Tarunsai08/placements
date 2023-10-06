@@ -70,4 +70,6 @@ const authJwt = {
     isDepartmentCoordinator,
     isStudent
 };
+
+
 module.exports = authJwt;
