@@ -19,9 +19,6 @@ jobs:
       - name: Run node app
         run: node ./api/app.js
 
-      - name: Build static page
-        run: npm run build
-
       - name: Deploy static page
         uses: actions/deploy-pages@v1
         with:

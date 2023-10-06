@@ -19,7 +19,7 @@ require('./routes/user.routes')(app);
 
 app.use('*',(req, res) => res.status(404).json({error:"Not Found"}))
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(String(process.env.MONGODB_URI))
     .then(async () => {
         console.log('MongoDB connected')
         await insertDepartments()
