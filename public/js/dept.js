@@ -1,3 +1,5 @@
+const axios = window.axios;
+
 let students = [
     {
         name:"Tarun",
@@ -24,60 +26,69 @@ let students = [
         department:"it"
     }
  ];
+
+let department = 'cse';
+axios.get('http://localhost:5000/api/department/get-department-result', {
+    headers: {
+        'x-access-token': sessionStorage.getItem('token')
+    }
+}). then((response) => {
+    students = Array.from(response.data);
+    console.log(students);
+})
+
+
  
- let department = 'cse'; // Replace this with the actual department of the coordinator
+ // Replace this with the actual department of the coordinator
  
  document.getElementById('view').addEventListener('click', function() {
-     let departmentStudents = students.filter(student => student.department === department);
-     
      let content = document.getElementById('content');
      
      content.innerHTML = '';
      
-     departmentStudents.forEach(student => {
-        let studentDiv = document.createElement('div');
-         
-        studentDiv.className = 'student-list';
-        let innerDiv = document.createElement('div');
-        innerDiv.className = 'student-item';
-        
-        innerDiv.innerHTML = 
-        `
-               <h3>${student.name}</h2>
-               <p>Year: ${student.year}</p>
-               <p>Package: ${student.package}</p>
-        `;
-        studentDiv.appendChild(innerDiv)
-        content.appendChild(studentDiv);
-     });
- });
- 
- document.getElementById('report').addEventListener('click', function() {
-     let year = prompt('Enter year');
-     let package = prompt('Enter package');
-     
-     let filteredStudents = students.filter(student => (student.year == year || student.package == package));
-     
-     let content = document.getElementById('content');
-     
-     content.innerHTML = '';
-     
-     filteredStudents.forEach(student => {
+     students.forEach(student => {
+         console.log(student);
          let studentDiv = document.createElement('div');
+
+         studentDiv.className = 'student';
          
-         studentDiv.className = 'student-list';
-         let innerDiv = document.createElement('div');
-         innerDiv.className = 'student-item';
-         
-         innerDiv.innerHTML = 
-         `
-                <h3>${student.name}</h2>
-                <p>Year: ${student.year}</p>
-                <p>Package: ${student.package}</p>
+         studentDiv.innerHTML = `
+             <h2>Roll No: ${student.rollNo}</h2>
+             <p>Company: ${student.company}</p>
+             <p>Package: ${student.package}</p>
          `;
-         studentDiv.appendChild(innerDiv)
+
          content.appendChild(studentDiv);
      });
  });
- 
+
+setTimeout(function(){
+    document.getElementById('view').click();
+}, 1000);
+
+ /*
+ document.getElementById('report').addEventListener('click', function() {
+     let year = prompt('Enter year');
+     let salary = prompt('Enter package');
+     
+     let filteredStudents = students.filter(student => (student.year == year || student.package == salary));
+
+     let content = document.getElementById('content');
+     
+     content.innerHTML = '';
+     
+     students.forEach(student => {
+         let studentDiv = document.createElement('div');
+
+         studentDiv.className = 'student';
+
+         studentDiv.innerHTML = `
+             <h2>Roll No: ${student.name}</h2>
+             <p>Year: ${student.year}</p>
+             <p>Package: ${student.package}</p>
+         `;
+         content.appendChild(studentDiv);
+     });
+ });
+ */
  

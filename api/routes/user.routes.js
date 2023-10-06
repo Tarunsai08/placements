@@ -14,4 +14,7 @@ module.exports = function(app) {
     app.get("/api/admin/get-result", [authJwt.verifyToken, authJwt.isAdmin], controller.getResult);
 
     app.get("/api/student/get-student-result", [authJwt.verifyToken, authJwt.isStudent], controller.getResultByRollNo);
+    app.get("/api/department/get-department-result", [authJwt.verifyToken, authJwt.isDepartmentCoordinator], controller.getResultByDepartment);
+
+    app.get("/api/student/get-by-rollNo", [authJwt.verifyToken], controller.getStudentByRollNo);
 };
