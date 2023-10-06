@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Include Tailwind CSS here -->
+    <style>
+      @import "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css";
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      #content {
+        padding: 20px;
+      }
+
+      .student {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+
+      nav a {
+        transition: color 0.3s ease-in-out;
+      }
+
+      nav a:hover {
+        color: #ffd700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mx-auto">
+      <nav class="flex justify-around bg-blue-500 p-4 text-white">
+        <a href="#" id="view">View</a>
+        <a href="#" id="report">Report</a>
+        <a href="#" id="notification">Notification</a>
+      </nav>
+
+      <div id="content"></div>
+    </div>
+
+    <script src="../js/dept.js"></script>
+  </body>
+</html>

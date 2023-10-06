@@ -18,9 +18,9 @@
         <ul class="flex space-x-4">
           <li>
             <a
-              href="#placement-history"
+              href="#profile"
               class="text-white hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out cursor-pointer p-2 rounded-md"
-              >Placement History</a
+              >Profile</a
             >
           </li>
           <li>
@@ -72,49 +72,24 @@
         </div>
       </div>
 
-      <!-- Placement Details Section (2/3 of the page) -->
+      <!-- Placement Status Section (2/3 of the page) -->
       <div class="w-2/3 p-4">
         <h2 class="text-2xl font-semibold mb-4">Placement Status</h2>
-        <div class="bg-white rounded-lg shadow-md overflow-x-auto">
-          <table class="table-auto w-full">
-            <thead>
-              <tr class="bg-indigo-500 text-white">
-                <th class="px-4 py-2">Placement Result</th>
-                <th class="px-4 py-2">Company</th>
-                <th class="px-4 py-2">LPA (if selected)</th>
-                <th class="px-4 py-2">Batch</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Replace the following with actual placement status data -->
-              <tr class="hover:bg-gray-100">
-                <td class="border px-4 py-2">Selected</td>
-                <td class="border px-4 py-2">ABC Corp</td>
-                <td class="border px-4 py-2">8.5 LPA</td>
-                <td class="border px-4 py-2">2023</td>
-              </tr>
-              <!-- Add more rows for placement status -->
-            </tbody>
-          </table>
+        <!-- Placement Status Cards -->
+        <div class="grid lg:grid-cols-4 sm:grid-cols-2 gap-4">
+          <!-- Placement Status Card 1 -->
+          <div class="bg-green-300 rounded-lg p-4 shadow-md h-auto w-auto">
+            <h3 class="text-xl font-semibold">Placement Result</h3>
+            <p>Selected</p>
+            <h3 class="text-xl font-semibold">Company</h3>
+            <p>Flipcart</p>
+            <h3 class="text-xl font-semibold">LPA</h3>
+            <p>10LPA</p>
+            <h3 class="text-xl font-semibold">Batch</h3>
+            <p>2025</p>
+          </div>
         </div>
       </div>
     </div>
-    <script>
-        // JavaScript to handle navigation and form submission
-        const insertBtn = document.getElementById("insertBtn");
-        const insertModal = document.getElementById("insertModal");
-        const viewEntries = document.getElementById("view");
-  
-        insertBtn.addEventListener("click", () => {
-          insertModal.classList.remove("hidden");
-        });
-  
-        function handleFormSubmission(event) {
-          event.preventDefault(); // Prevent form submission
-          // Handle form submission here (e.g., save data to a database)
-          // After submission, close the "Insert" modal and show the "View" page
-          insertModal.classList.add("hidden");
-        }
-      </script>
   </body>
 </html>
