@@ -35,17 +35,20 @@ let students = [
      content.innerHTML = '';
      
      departmentStudents.forEach(student => {
-         let studentDiv = document.createElement('div');
+        let studentDiv = document.createElement('div');
          
-         studentDiv.className = 'student';
-         
-         studentDiv.innerHTML = `
-             <h2>${student.name}</h2>
-             <p>Year: ${student.year}</p>
-             <p>Package: ${student.package}</p>
-         `;
-         
-         content.appendChild(studentDiv);
+        studentDiv.className = 'student-list';
+        let innerDiv = document.createElement('div');
+        innerDiv.className = 'student-item';
+        
+        innerDiv.innerHTML = 
+        `
+               <h3>${student.name}</h2>
+               <p>Year: ${student.year}</p>
+               <p>Package: ${student.package}</p>
+        `;
+        studentDiv.appendChild(innerDiv)
+        content.appendChild(studentDiv);
      });
  });
  
@@ -62,14 +65,17 @@ let students = [
      filteredStudents.forEach(student => {
          let studentDiv = document.createElement('div');
          
-         studentDiv.className = 'student';
+         studentDiv.className = 'student-list';
+         let innerDiv = document.createElement('div');
+         innerDiv.className = 'student-item';
          
-         studentDiv.innerHTML = `
-             <h2>${student.name}</h2>
-             <p>Year: ${student.year}</p>
-             <p>Package: ${student.package}</p>
+         innerDiv.innerHTML = 
+         `
+                <h3>${student.name}</h2>
+                <p>Year: ${student.year}</p>
+                <p>Package: ${student.package}</p>
          `;
-         
+         studentDiv.appendChild(innerDiv)
          content.appendChild(studentDiv);
      });
  });

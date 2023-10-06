@@ -14,6 +14,8 @@
 
       #content {
         padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
       }
 
       .student {
@@ -27,6 +29,34 @@
 
       nav a:hover {
         color: #ffd700;
+      }
+
+      .student-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .student-item {
+        width: 45vw;
+        margin: 20px;
+        background-color: #f8f9fa;
+        border-radius: 15px;
+        padding: 16px;
+
+        /* Add a box shadow for a "card" effect */
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+      }
+
+      .student-item h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #6c757d; /* dark grey */
+      }
+
+      .student-item p {
+        margin-top: 5px;
+        margin-bottom: 10px;
       }
     </style>
   </head>
