@@ -23,9 +23,9 @@ const login = async (email, password) => {
         sessionStorage.setItem('role', response.data.role);
 
         if (response.data.role === 'admin') {
-            window.location.href = '/placements/public/html/admin.html';
+            window.location.href = './admin.html';
         } else if (response.data.role === 'student') {
-            window.location.href = '/placements/public/html/student.html';
+            window.location.href = './student.html';
         }
     } catch (error) {
         console.log(error.response.data.message);
